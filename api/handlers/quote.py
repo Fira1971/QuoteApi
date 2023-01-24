@@ -43,7 +43,7 @@ def create_quote(author_id):
     return quote.to_dict(), 201
 
 
-@app.route('/quotes/<int:id>', methods=["PUT"])
+@app.route('/quotes/<int:quote_id>', methods=["PUT"])
 def edit_quote(quote_id):
     quote_data = request.json
     quote = QuoteModel.query.get(quote_id)
