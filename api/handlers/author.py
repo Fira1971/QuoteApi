@@ -45,4 +45,4 @@ def delete_author(author_id):
         return {"Error": f"Author id={author_id} not found"}, 404
     db.session.delete(author)
     db.session.commit()
-    return {"message": f"Quote with id={author_id} has deleted"}, 200
+    return {"message": f"Author with id={author_id} has deleted"}, 200
