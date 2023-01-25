@@ -10,10 +10,3 @@ class QuoteModel(db.Model):
     def __init__(self, author: AuthorModel, text: str):
         self.author_id = author.id
         self.text = text
-
-    def to_dict(self):
-        return {
-            "id": self.id,
-            "text": self.text,
-            "author": self.author.to_dict()
-        }

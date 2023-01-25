@@ -8,9 +8,3 @@ class LearnerModel(db.Model):
 
     def __init__(self, name):
         self.name = name
-
-    def to_dict(self):
-        return {
-            "uid": self.id,
-            "name": self.name
-        }
