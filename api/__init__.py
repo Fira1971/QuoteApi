@@ -3,7 +3,7 @@ from flask import Flask, request, g
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_marshmallow import Marshmallow
-from flask_httpauth import HTTPBasicAuth
+from flask_httpauth import HTTPBasicAuth, HTTPTokenAuth, MultiAuth
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -12,10 +12,12 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 ma = Marshmallow(app)
-auth = HTTPBasicAuth()
+basic_auth = HTTPBasicAuth()
+token_auth = HTTPTokenAuth('Bearer')
+multi_auth = MultiAuth(basic_auth, token_auth)
 
 
-@auth.verify_password
+@basic_auth.verify_password
 def verify_password(username, password):
     from api.models.user import UserModel
     user = UserModel.query.filter_by(username=username).first()
@@ -23,3 +25,11 @@ def verify_password(username, password):
         return False
     g.user = user
     return True
+
+
+@token_auth.verify_token
+def verify_token(token):
+    from api.models.user import UserModel
+    user = UserModel.verify_auth_token(token)
+    print(f"{user=}")
+    return user
