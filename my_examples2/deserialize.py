@@ -8,17 +8,17 @@ json_data = """
    {
        "uid": 1,
        "name": "Alex",
-       "final_test": "exept"
+       "final_test": true
    },
    {
        "uid": 2,
        "name": "Ivan",
-       "final_test": "fine"
+       "final_test": false
    },
    {
        "uid": 4,
        "name": "Tom",
-       "final_test": "fine"
+       "final_test": true
    }
 ]
 """
