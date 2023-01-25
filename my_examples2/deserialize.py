@@ -28,8 +28,8 @@ print(result)
 
 learners = [
     Learner("1", "Alex"),
-    Learner("1", "Ivan"),
-    Learner("1", "Tom")
+    Learner("2", "Ivan"),
+    Learner("3", "Tom")
 ]
 schemas = LearnerSchema(many=True)
 res = schemas.dump(learners)
