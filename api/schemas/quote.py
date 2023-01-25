@@ -10,6 +10,7 @@ class QuoteSchema(ma.SQLAlchemySchema):
     id = ma.auto_field()
     text = ma.auto_field()
     author = ma.Nested(AuthorSchema())
+    rating = ma.auto_field()
 
 
 # Для единичного экземпляра

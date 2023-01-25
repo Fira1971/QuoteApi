@@ -23,7 +23,7 @@ def get_author_by_id(author_id):
 @app.post('/authors')
 def create_author():
     author_data = request.json
-    author = AuthorModel(author_data["name"])
+    author = AuthorModel(**author_data)
     db.session.add(author)
     db.session.commit()
     return author_schema.dump(author), 200
