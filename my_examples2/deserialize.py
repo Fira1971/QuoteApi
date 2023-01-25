@@ -1,21 +1,22 @@
 from student import Learner
 from schema import LearnerSchema
+from pprint import pprint
 
 
 json_data = """
 [
    {
-       "id": 1,
+       "uid": 1,
        "name": "Alex",
        "final_test": "exept"
    },
    {
-       "id": 2,
+       "uid": 2,
        "name": "Ivan",
        "final_test": "fine"
    },
    {
-       "id": 4,
+       "uid": 4,
        "name": "Tom",
        "final_test": "fine"
    }
@@ -24,13 +25,4 @@ json_data = """
 
 schema = LearnerSchema(many=True)
 result = schema.loads(json_data)
-print(result)
-
-learners = [
-    Learner("1", "Alex"),
-    Learner("2", "Ivan"),
-    Learner("3", "Tom")
-]
-schemas = LearnerSchema(many=True)
-res = schemas.dump(learners)
-print(res)
+pprint(result)
