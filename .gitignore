@@ -1,7 +1,7 @@
 .idea/
 .vscode/
-.my_examles/
-.my_examles2/
+my_examles/
+my_examles2/
 __pycache__/
 tmp/
 *env/
